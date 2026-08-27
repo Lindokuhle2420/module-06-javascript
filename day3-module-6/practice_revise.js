@@ -32,6 +32,3 @@ while(x < 20) {
 console.log(x++)
 }
 */
-for(let i = 0) {
-    console.log(i)
-}

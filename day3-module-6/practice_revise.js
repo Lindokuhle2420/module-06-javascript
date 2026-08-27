@@ -1,4 +1,4 @@
-// tenary operator
+/*// tenary operator
 let age = 25
 
 //nodlet age = price >=20 ? "You are too Young": "You are old enough";
@@ -23,4 +23,15 @@ console.log (index);
 
 for(let i =0; i <fruits.length;i++){
     console.log(fruits[i]);
+}
+*/
+
+// while loop
+/*let x =1;
+while(x < 20) {
+console.log(x++)
+}
+*/
+for(let i = 0) {
+    console.log(i)
 }

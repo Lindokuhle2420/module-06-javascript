@@ -11,6 +11,17 @@
  modules.add(p);
  modules.add(d);
 
+ // study hours
+ const studytime = new Map();
+ studytime.set(j,"6 hours");
+ studytime.set(p,"4 hours");
+ studytime.set(m,"8 hours");
+ studytime.set(d,"5 hours");
+ let st="";
+ studytime.forEach(function(value,key){
+    st+=key+": "+value+("\n");
+})
+
  let text="";
  for (let o of modules.keys()){
     text+= o +("\n");
@@ -46,22 +57,23 @@ schedule.set("Monday",j);
 schedule.set("Tuesday",m);
 schedule.set("Wednesday",p);
 schedule.set("Thursday",d);
-let sche ="";
-    for(let x of schedule.entries()){
-        sche+= x +("\n");
-    }
+let t ="";
+schedule.forEach(function(value,key){
+    t+=key+" -> "+value+("\n");
+})
+
 
 
 // Creating a deadline using Map
 const deadlines = new Map();
-deadlines.set(j,new Date("2026/09/10"));
-deadlines.set(p,new Date("2026/09/15"));
-deadlines.set(m,new Date("2026/09/20"));
-deadlines.set(d,new Date("2026/09/26"));
+deadlines.set(j,new Date("10,September,2026"));
+deadlines.set(p,new Date("15,September,2026"));
+deadlines.set(m,new Date("20,September,2026"));
+deadlines.set(d,new Date("26,September,2026"));
 let l ="";
-for (let ds of deadlines.entries()){
-    l+= ds+("\n");
-}
+deadlines.forEach(function(value,key){
+    l+=key+" -> "+value+("\n");
+})
 
 // Create a Function
 function checkStudyStatus(hours){
@@ -85,12 +97,15 @@ function calculateTotalHours(subjects){
 
 
 
-console.log("=====PERSONAL STUDY PLANNER======");
-console.log("Today's date - "+new Date());
+console.log("============PERSONAL STUDY PLANNER===========");
+console.log("                      ");
+console.log("Today's date - "+ new Date("08/29/2026"));
 console.log("                      ");
 console.log("Subjects:"+("\n")+text);
-console.log("Schedule:"+("\n")+ sche);
+console.log("Study Hours:"+("\n"+st));
+console.log("Schedule:"+("\n")+t);
 console.log("Deadlines: "+("\n")+l);
 console.log(checkStudyStatus(studySubjects));
+console.log("                            ");
 console.log ("Total study hours: "+ calculateTotalHours(studySubjects));
 

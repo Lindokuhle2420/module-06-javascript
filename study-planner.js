@@ -54,24 +54,36 @@ let sche ="";
 
 // Creating a deadline using Map
 const deadlines = new Map();
-deadlines.set(j,new Date("2026-09-10"));
-deadlines.set(p,new Date("2026-09-15"));
-deadlines.set(m,new Date("2026-09-20"));
-deadlines.set(d,new Date("2026-09-26"));
+deadlines.set(j,new Date("2026/09/10"));
+deadlines.set(p,new Date("2026/09/15"));
+deadlines.set(m,new Date("2026/09/20"));
+deadlines.set(d,new Date("2026/09/26"));
 let l ="";
 for (let ds of deadlines.entries()){
     l+= ds+("\n");
 }
 
-/* Create a function
-const calculateTotalHours(subjects) {
+// Create a Function
+function checkStudyStatus(hours){
+    for( const hour of hours){
+        if(hour.Hours > 6){
+            return "Good study progress for"+" "+ hour.Name;
+        } else{
+            return"Needs more study time for"+" "+ hour.Name;
+        }
+    }
+}
+
+ //Create a function
+function calculateTotalHours(subjects){
     let total = 0;
     for(let subject of subjects){
         total+=subject.Hours;
     }
     return total;
 };
-*/
+
+
 
 console.log("=====PERSONAL STUDY PLANNER======");
 console.log("Today's date - "+new Date());
@@ -79,5 +91,6 @@ console.log("                      ");
 console.log("Subjects:"+("\n")+text);
 console.log("Schedule:"+("\n")+ sche);
 console.log("Deadlines: "+("\n")+l);
-
+console.log(checkStudyStatus(studySubjects));
+console.log ("Total study hours: "+ calculateTotalHours(studySubjects));
 
